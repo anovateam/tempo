@@ -52,4 +52,4 @@ spec:
       resources:
         requests:
           storage: 5Gi
-      storageClassName: local-path
+      storageClassName: default

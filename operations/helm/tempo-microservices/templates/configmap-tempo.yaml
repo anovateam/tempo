@@ -13,6 +13,8 @@ data:
             jaeger:
                 protocols:
                     thrift_http: null
+                    thrift_compact: null
+            zipkin: null
             opencensus: null
     ingester:
         lifecycler:
@@ -22,7 +24,7 @@ data:
         abort_if_cluster_join_fails: false
         bind_port: 7946
         join_members:
-          - gossip-ring.default.svc.cluster.local:7946
+          - gossip-ring:7946
     overrides:
         per_tenant_override_config: /conf/overrides.yaml
     server:
@@ -31,11 +33,11 @@ data:
         trace:
             {{- toYaml .Values.backend | nindent 12 }}
             blocklist_poll: '0'
-            memcached:
-                consistent_hash: true
-                host: memcached
-                service: memcached-client
-                timeout: 500ms
+{{/*            memcached:*/}}
+{{/*                consistent_hash: true*/}}
+{{/*                host: memcached*/}}
+{{/*                service: memcached-client*/}}
+{{/*                timeout: 500ms*/}}
             pool:
                 queue_depth: 2000
             wal:

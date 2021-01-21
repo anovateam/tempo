@@ -33,6 +33,8 @@ spec:
         ports:
         - containerPort: 3100
           name: prom-metrics
+        - containerPort: 9095
+          name: grpc
         resources:
           {{- toYaml .Values.queryFrontend.resources | nindent 10 }}
         volumeMounts:

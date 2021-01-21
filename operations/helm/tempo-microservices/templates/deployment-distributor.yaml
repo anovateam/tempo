@@ -33,6 +33,11 @@ spec:
           name: opencensus
         - containerPort: 14268
           name: jaeger-http
+        - containerPort: 6831
+          name: jaeger-compact
+          protocol: UDP
+        - containerPort: 9411
+          name: zipkin
         resources:
           {{- toYaml .Values.distributor.resources | nindent 10 }}
         volumeMounts:

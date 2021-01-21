@@ -7,12 +7,12 @@ data:
     auth_enabled: false
     querier:
         frontend_worker:
-            frontend_address: query-frontend-discovery.default.svc.cluster.local:9095
+            frontend_address: query-frontend:9095
     memberlist:
         abort_if_cluster_join_fails: false
         bind_port: 7946
         join_members:
-          - gossip-ring.default.svc.cluster.local:7946
+          - gossip-ring:7946
     overrides:
         per_tenant_override_config: /conf/overrides.yaml
     server:
@@ -22,11 +22,11 @@ data:
         trace:
             {{- toYaml .Values.backend | nindent 12 }}
             blocklist_poll: 5m
-            memcached:
-                consistent_hash: true
-                host: memcached
-                service: memcached-client
-                timeout: 1s
+{{/*            memcached:*/}}
+{{/*                consistent_hash: true*/}}
+{{/*                host: memcached*/}}
+{{/*                service: memcached-client*/}}
+{{/*                timeout: 1s*/}}
             pool:
                 max_workers: 200
                 queue_depth: 2000

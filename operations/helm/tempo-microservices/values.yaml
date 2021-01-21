@@ -1,15 +1,15 @@
 retention: 48h
 storage:
   capacity: 30G
-  storageClassName: local-path
+  storageClassName: default
 backend:
-  backend: s3
-  s3:
-    access_key: tempo
-    bucket: tempo
-    endpoint: minio:9000
-    insecure: true
-    secret_key: supersecret
+#  backend: s3
+#  s3:
+#    access_key: tempo
+#    bucket: tempo
+#    endpoint: minio:9000
+#    insecure: true
+#    secret_key: supersecret
 distributor:
   replicas: 2
   image: grafana/tempo:latest
