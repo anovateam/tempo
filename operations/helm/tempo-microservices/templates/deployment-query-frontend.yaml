@@ -34,7 +34,7 @@ spec:
         - containerPort: 3100
           name: prom-metrics
         - containerPort: 9095
-          name: grpc
+          name: tempo-querier
         resources:
           {{- toYaml .Values.queryFrontend.resources | nindent 10 }}
         volumeMounts:
