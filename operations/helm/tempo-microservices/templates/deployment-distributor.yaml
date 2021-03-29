@@ -53,4 +53,3 @@ spec:
       {{- end }}
       affinity:
         {{- toYaml .Values.distributor.affinity | nindent 8 }}
-
