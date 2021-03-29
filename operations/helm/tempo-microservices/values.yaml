@@ -21,6 +21,8 @@ distributor:
     jaeger:
       protocols:
         thrift_http: null
+  tolerations: []
+  affinity: {}
 compactor:
   replicas: 1
   image: grafana/tempo:latest
@@ -28,6 +30,8 @@ compactor:
     requests:
       cpu:      250m
       memory:   1Gi
+  tolerations: []
+  affinity: {}
 ingester:
   replicas: 3
   image: grafana/tempo:latest
@@ -35,6 +39,8 @@ ingester:
     requests:
       cpu:      1
       memory:   1.5Gi
+  tolerations: []
+  affinity: {}
 resources:
   image: grafana/tempo:latest
   resources: 
@@ -48,6 +54,8 @@ queryFrontend:
     requests:
       cpu:      250m
       memory:   500Mi
+  tolerations: []
+  affinity: {}
 querier:
   replicas: 1
   image: grafana/tempo:latest
@@ -55,6 +63,8 @@ querier:
     requests:
       cpu:      250m
       memory:   500Mi
+  tolerations: []
+  affinity: {}
 tempoQuery:
   image: grafana/tempo-query:latest
   resources: 
@@ -64,4 +74,5 @@ tempoQuery:
 memcached:
   image: memcached:1.5.17-alpine
   replicas: 0
-
+  tolerations: []
+  nodeSelector: {}

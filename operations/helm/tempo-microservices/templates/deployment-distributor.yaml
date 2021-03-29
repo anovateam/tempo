@@ -42,3 +42,9 @@ spec:
       - configMap:
           name: tempo
         name: tempo-conf
+      {{- with .Values.distributor.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        {{- toYaml .Values.distributor.affinity | nindent 8 }}
