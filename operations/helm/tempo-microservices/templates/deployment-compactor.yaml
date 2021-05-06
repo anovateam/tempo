@@ -40,3 +40,9 @@ spec:
       - configMap:
           name: tempo-compactor
         name: tempo-conf
+      {{- with .Values.compactor.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        {{- toYaml .Values.compactor.affinity | nindent 8 }}
